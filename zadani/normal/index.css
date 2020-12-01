@@ -1,52 +1,305 @@
-/* nejsme vcerejsi, pouzivame moderni box model */
-html {
-    box-sizing: border-box;
-}
-
-*,
-::after,
-::before {
-    box-sizing: inherit;
-}
-
-/*
-    BARVY
-    šedá: #e5e5e5 (pozadí body)
-    světle fialová: #48418e (navigace, primární tlačítko, nadpisy služeb, patička)
-    tmavě fialová: #25133d (výchozí barva gradientu, hover primárního tlačítka)
-    nachová: #aa5477 (koncová barva gradientu)
-    gradient v záhlaví: linear-gradient(to right, #25133d 25%, #aa5477 100%)
-
-    PÍSMO
-    Source Sans Pro
-    https://fonts.google.com/specimen/Source+Sans+Pro?query=source+Sans
-    - light 300 (slogan)
-    - bold 700 (logo, nadpisy)
-    - regular 400 (vše ostatní)
-
-    HOVER EFEKT
-    navigace: prohodit barvu písma s barvou pozadí
-    primární tlačítko: ohraničení světle fialovou, pozadí tmavě fialovou
-    sekundární tlačítko: ohraničení i pozadí světle fialovou
-
-    BONUSOVÁ VÝZVA
-    Změň barvu ikon na tmavě fialovou.
-*/
 body {
-    padding: 0;
-    margin: 0;
-    font-family: "Source Sans Pro", sans-serif;
-    font-weight: 400;
+    font-family: 'Source Sans Pro', sans-serif;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
     line-height: 1.5;
-}
-
-.container {
-    /* obsah stránky je omezený do pruhu širokého 1200px */
-    max-width: 1200px;
-    /* stránka je vycentrovaná */
-    margin: 0 auto;
-    background: white;
+    background-color:#e5e5e5;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    max-width: 1600px;
+
 }
 
-/* ----- zde začni psát vlastní CSS ----- */
+
+/* HEADER */
+
+.hlavicka {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    align-content: center;
+}
+
+.menu li:hover, 
+.menu li:focus {
+    background-color: #48418e;
+    padding: 1rem;
+}
+
+.menu a:hover, 
+.menu a:focus {
+    color:white;
+}
+
+
+li {
+    list-style: none;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.2rem; 
+    flex-grow: 1;
+
+}
+
+a {
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.2rem; 
+    flex-grow: 1;
+}
+
+ul a {
+    color: #48418e ;
+    text-decoration: none;
+    text-align: center;
+}
+
+.superapka {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+
+/* BANER */
+
+
+.baner {
+    background: rgb(37,19,61);
+    background: linear-gradient(90deg, rgba(37,19,61,1) 0%, rgba(170,84,119,1) 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    display: flex;
+}
+
+h1 {
+    padding: 2rem 2rem 0;
+    margin: 0;
+    font-weight: 400;
+    font-size: 3rem;
+}
+
+.slogan {
+    padding: 1rem 2rem;
+    margin: 0;
+    font-weight: 300;
+    font-size: 2rem;
+}
+
+.tlacitko {
+    padding: 0 1rem;
+    margin: 0 2rem;
+    display: flex;
+    justify-content: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+
+.stahnout {
+    background: rgb(72,65,142);
+}
+
+.info {
+    margin: 1rem 2rem 1rem;
+}
+
+div a {
+    color: white ;
+    text-decoration: none;
+    text-align: center;
+}
+
+.info:hover, 
+.info:focus {
+    background: rgb(72,65,142);
+}
+
+.stahnout:hover, 
+.stahnout:focus {
+    background: transparent;
+}
+
+
+.obrazek {
+    display: none;    
+}
+
+/* NABIDKA */
+
+.obsah {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.sluzby {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    max-width: 500px;
+    justify-content: center;
+    flex-basis: calc(100%/3);
+}
+
+
+
+h2 {
+    color: #48418e;
+    font-weight: 700;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 0;
+}
+
+.logo {
+    width: 20%;
+}
+
+
+
+/* FOOTER */
+
+.paticka {
+    background-color: #48418e ;
+    color: white;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+@media (max-width: 771px) {
+    li {
+        flex-basis: 50%;
+        box-sizing:border-box;
+    }
+}
+
+
+
+
+
+@media (min-width: 772px) {
+
+    body {
+        min-width: 772px;
+        max-width: 900px;
+    }
+    .navigace {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        flex-basis: auto;
+    }
+
+    .menu {
+        text-align: left;
+    }
+
+    .menu.nahore {
+        margin-left: 1rem;
+    }
+
+    h1 {
+        font-size: 4.5rem;
+    }
+
+    .slogan {
+        font-size: 2.5rem;
+    }
+
+    .tlacitka {
+        display: flex;
+        margin-bottom: 2rem;
+        }
+
+    .tlacitko {
+        font-size: 1.5rem;
+    }
+
+    .info {
+        margin: 0;
+    }
+
+
+
+    .obsah {
+        justify-content: center;
+        flex-grow: 1;
+        flex-direction: row;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    .sluzby {
+        padding: 1rem 2rem;
+    }
+
+    .logo {
+        order: -1;
+        padding: 1rem;
+        width: 80px;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+@media (min-width:966px) {
+
+    body {
+        min-width: 901px;
+        max-width: 1700px;
+    }
+
+    .obrazek {
+        display: block;
+        z-index: 9999;
+        height: 400px;
+        padding-left: 5rem;
+    }
+
+    .baner {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+
+}
+
+@media (min-width: 1270px) {
+    .tlacitka {
+        margin-top: 2rem;
+    }
+}
